@@ -16,6 +16,9 @@ end
 
 local function path_to_uri(path)
     path = path:gsub('\\', '/')
+    path = path:gsub('^([A-Z]):', function (drive)
+        return drive:lower() .. ':'
+    end)
     local encoded = path:gsub('([^A-Za-z0-9%-%._~/])', function(char)
         return string.format('%%%02X', char:byte())
     end)
