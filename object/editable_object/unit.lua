@@ -129,14 +129,14 @@ end
 ---@param type y3.Const.AbilityType | y3.Const.AbilityTypeAlias 技能类型
 ---@param ability_key py.AbilityKey 物编id
 function M:remove_abilitiy_by_key(type, ability_key)
-    self.handle:api_remove_abilities_in_type(y3.const.AbilityType[type] or type, ability_key)
+    self.handle:api_remove_abilities_in_type((y3.const.AbilityType[type] or type) --[[@as integer]], ability_key)
 end
 
 --移除技能(指定类型)
 ---@param type y3.Const.AbilityType | y3.Const.AbilityTypeAlias 技能类型
 ---@param ability_key py.AbilityKey 物编id
 function M:remove_ability_by_key(type, ability_key)
-    self.handle:api_remove_abilities_in_type(y3.const.AbilityType[type] or type, ability_key)
+    self.handle:api_remove_abilities_in_type((y3.const.AbilityType[type] or type) --[[@as integer]], ability_key)
 end
 
 ---单位添加物品
@@ -237,7 +237,7 @@ end
 ---@param level? integer 等级
 ---@return Ability?
 function M:add_ability(type, id, slot, level)
-    local py_ability = self.handle:api_add_ability(y3.const.AbilityType[type] or type, id, slot or -1, level or 1)
+    local py_ability = self.handle:api_add_ability((y3.const.AbilityType[type] or type) --[[@as integer]], id, slot or -1, level or 1)
     if not py_ability then
         return nil
     end
@@ -257,7 +257,7 @@ end
 ---@param id py.AbilityKey 物编id
 ---@return Ability? ability 技能
 function M:find_ability(type, id)
-    local py_ability = self.handle:api_get_ability_by_type(y3.const.AbilityType[type] or type, id)
+    local py_ability = self.handle:api_get_ability_by_type((y3.const.AbilityType[type] or type) --[[@as integer]], id)
     if not py_ability then
         return nil
     end
@@ -303,7 +303,7 @@ end
 ---@param slot integer 位置
 ---@return Item? item 物品
 function M:get_item_by_slot(type, slot)
-    local py_item = self.handle:api_get_item_by_slot(y3.const.ShiftSlotType[type] or type, slot)
+    local py_item = self.handle:api_get_item_by_slot((y3.const.ShiftSlotType[type] or type) --[[@as integer]], slot)
     if not py_item then
         return nil
     end
@@ -438,14 +438,14 @@ end
 ---添加状态
 ---@param state_enum integer|y3.Const.UnitEnumState 状态名
 function M:add_state(state_enum)
-    self.handle:api_add_state(y3.const.UnitEnumState[state_enum] or state_enum)
+    self.handle:api_add_state((y3.const.UnitEnumState[state_enum] or state_enum) --[[@as integer]])
 end
 
 ---移除状态
 -- 只有移除次数等同添加次数时才能移除状态
 ---@param state_enum integer|y3.Const.UnitEnumState 状态名
 function M:remove_state(state_enum)
-    self.handle:api_remove_state(y3.const.UnitEnumState[state_enum] or state_enum)
+    self.handle:api_remove_state((y3.const.UnitEnumState[state_enum] or state_enum) --[[@as integer]])
 end
 
 ---添加多个状态
@@ -466,7 +466,7 @@ end
 ---@param state_enum integer|y3.Const.UnitEnumState 状态名
 ---@return boolean?
 function M:has_state(state_enum)
-    return self.handle:api_has_state(y3.const.UnitEnumState[state_enum] or state_enum)
+    return self.handle:api_has_state((y3.const.UnitEnumState[state_enum] or state_enum) --[[@as integer]])
 end
 
 ---添加状态
@@ -546,7 +546,7 @@ end
 ---@param back_to_nearest boolean 偏离后就近返回
 ---@return py.UnitCommand # 命令
 function M:move_along_road(road, patrol_mode, can_attack, start_from_nearest, back_to_nearest)
-    local command = GameAPI.create_unit_command_move_along_road(road.handle, y3.const.RoadPatrolType[patrol_mode] or patrol_mode, can_attack, start_from_nearest, back_to_nearest)
+    local command = GameAPI.create_unit_command_move_along_road(road.handle, (y3.const.RoadPatrolType[patrol_mode] or patrol_mode) --[[@as integer]], can_attack, start_from_nearest, back_to_nearest)
     self:command(command)
     return command
 end
@@ -682,7 +682,7 @@ end
 ---设置名称显示方式
 ---@param show_type y3.Const.BarNameShowType 名称显示方式
 function M:set_name_show_type(show_type)
-    self.handle:api_set_bar_name_show_type(y3.const.BarNameShowType[show_type] or show_type)
+    self.handle:api_set_bar_name_show_type((y3.const.BarNameShowType[show_type] or show_type) --[[@as integer]])
 end
 
 ---设置描述
@@ -961,7 +961,7 @@ end
 ---设置血条样式
 ---@param bar_type integer | y3.Const.BloodBarType 血条样式
 function M:set_blood_bar_type(bar_type)
-    self.handle:api_set_blood_bar_type(y3.const.BloodBarType[bar_type] or bar_type)
+    self.handle:api_set_blood_bar_type((y3.const.BloodBarType[bar_type] or bar_type) --[[@as integer]])
 end
 
 ---设置血条文本
@@ -1947,7 +1947,7 @@ end
 ---@param collision_layer integer | y3.Const.CollisionLayers 碰撞类型
 ---@return boolean # 是否拥有指定碰撞类型
 function M:has_move_collision(collision_layer)
-    return self.handle:api_get_move_collision(y3.const.CollisionLayers[collision_layer] or collision_layer) or false
+    return self.handle:api_get_move_collision((y3.const.CollisionLayers[collision_layer] or collision_layer) --[[@as integer]]) or false
 end
 
 ---设置单位是否计算某种碰撞类型
@@ -2021,7 +2021,7 @@ function M:damage(data)
         -- TODO 参考问题3
         ---@diagnostic disable-next-line: param-type-mismatch
         data.target.handle,
-        y3.const.DamageTypeMap[data.type] or data.type,
+        (y3.const.DamageTypeMap[data.type] or data.type) --[[@as integer]],
         Fix32(data.damage),
         data.text_type ~= nil,
         nil,
@@ -2032,7 +2032,7 @@ function M:damage(data)
         data.socket or '',
         ---@diagnostic disable-next-line: param-type-mismatch
         y3.const.FloatTextType[data.text_type] or data.text_type or 'physics',
-        y3.const.FloatTextJumpType[data.text_track] or data.text_track or 0,
+        (y3.const.FloatTextJumpType[data.text_track] or data.text_track or 0) --[[@as integer]],
         data.attack_type or 0,
         data.pos_socket or ''
     )

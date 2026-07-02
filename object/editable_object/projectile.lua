@@ -194,7 +194,7 @@ function M.create(data)
             Fix32(data.time or 60.0),
             data.time and true or false,
             Fix32(data.height or 0.0),
-            y3.const.VisibleType[data.visible_rule] or data.visible_rule or 1,
+            (y3.const.VisibleType[data.visible_rule] or data.visible_rule or 1) --[[@as integer]],
             data.remove_immediately or false,
             data.remove_immediately == nil and true or false,
             data.show_in_fog or false
@@ -213,7 +213,7 @@ function M.create(data)
                 ---@diagnostic disable-next-line: param-type-mismatch
                 data.owner.handle,
                 data.ability and data.ability.handle or nil,
-                y3.const.VisibleType[data.visible_rule] or data.visible_rule or 1,
+                (y3.const.VisibleType[data.visible_rule] or data.visible_rule or 1) --[[@as integer]],
                 Fix32(data.time or 60.0),
                 data.time and true or false,
                 data.remove_immediately or false,

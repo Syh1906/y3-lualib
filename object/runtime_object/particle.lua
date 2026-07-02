@@ -82,7 +82,7 @@ function M.create(data)
             data.type,
             target.handle,
             socket,
-            y3.const.SfxRotateType[follow_rotation] or follow_rotation or 0,
+            (y3.const.SfxRotateType[follow_rotation] or follow_rotation or 0) --[[@as integer]],
             follow_scale,
             scale,
             time,

@@ -118,7 +118,7 @@ end
 ---@param data? Serialization.SupportTypes 自定义数据，在事件中通过 `data` 字段获取
 ---@return string
 function M:add_event(event, name, data)
-    return GameAPI.create_ui_comp_event_ex_ex(self.handle, y3.const.UIEventMap[event] or event, name, y3.dump.encode(data))
+    return GameAPI.create_ui_comp_event_ex_ex(self.handle, (y3.const.UIEventMap[event] or event) --[[@as integer]], name, y3.dump.encode(data))
 end
 
 ---@private
@@ -134,7 +134,7 @@ function M:add_fast_event(event, callback)
         , self.handle
     )
     if not M._added_fast_events[id] then
-        GameAPI.create_ui_comp_event_ex_ex(self.handle, y3.const.UIEventMap[event] or event, id, '')
+        GameAPI.create_ui_comp_event_ex_ex(self.handle, (y3.const.UIEventMap[event] or event) --[[@as integer]], id, '')
         M._added_fast_events[id] = true
     end
     return self.player:event("界面-消息", id, callback)

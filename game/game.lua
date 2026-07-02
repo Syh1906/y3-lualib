@@ -312,13 +312,13 @@ end
 ---@param area Area 区域
 ---@param weather integer | y3.Const.WeatherType 天气
 function M.set_area_weather(area, weather)
-    GameAPI.update_area_weather(area.handle, y3.const.WeatherType[weather] or weather)
+    GameAPI.update_area_weather(area.handle, (y3.const.WeatherType[weather] or weather) --[[@as integer]])
 end
 
 ---设置全局天气
 ---@param weather integer | y3.Const.WeatherType 天气
 function M.set_global_weather(weather)
-    GameAPI.update_global_weather(y3.const.WeatherType[weather] or weather)
+    GameAPI.update_global_weather((y3.const.WeatherType[weather] or weather) --[[@as integer]])
 end
 
 ---设置雾效属性
@@ -675,11 +675,11 @@ end
 function M.send_signal(player, signal_enum, point, visible_enum)
     GameAPI.send_signal(
         player:get_id() --[[@as py.RoleID]],
-        y3.const.SignalType[signal_enum] or signal_enum,
+        (y3.const.SignalType[signal_enum] or signal_enum) --[[@as integer]],
         -- TODO 见问题2
         ---@diagnostic disable-next-line: param-type-mismatch
         point.handle,
-        y3.const.VisibleType[visible_enum] or visible_enum
+        (y3.const.VisibleType[visible_enum] or visible_enum) --[[@as integer]]
     )
 end
 

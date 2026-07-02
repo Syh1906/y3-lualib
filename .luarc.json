@@ -1,22 +1,29 @@
 {
-    "diagnostics.globals": [
-        "gameapi",
-        "globalapi",
-        "CreateMoverComponent",
-        "MoverSystem",
-        "Blackbox"
-    ],
     "workspace.preloadFileSize": 5000,
+    "workspace.ignoreDir": [
+        "演示",
+        "testcase",
+        "unittest",
+        "third_party",
+        ".luals"
+    ],
+    "diagnostics.ignoredFiles": "Disable",
+    "runtime.version": "Lua 5.4",
     "runtime.pathStrict": true,
     "runtime.path": [
+        "?.lua",
+        "?/init.lua",
         "../?.lua",
         "../?/init.lua"
     ],
+    "runtime.plugin": ".luals/resolve-y3-require.lua",
     "runtime.special": {
         "include": "require"
     },
     "hover.expandAlias": false,
-    "doc.privateName": ["__*"],
+    "doc.privateName": [
+        "__*"
+    ],
     "diagnostics.groupFileStatus": {
         "ambiguity": "Any",
         "await": "Any",

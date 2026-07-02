@@ -325,7 +325,7 @@ function M.wrap_curve_args(args)
     ---@type py.CurvedPath
     local path = y3.helper.pack_list(args.path, function (lua_object)
         if type(lua_object) == 'userdata' then
-            return lua_object
+            return lua_object --[[@as py.FixedVec2]]
         end
         ---@cast lua_object Point
         return Fix32Vec2(lua_object:get_x(), lua_object:get_y())

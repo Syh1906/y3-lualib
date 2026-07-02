@@ -57,8 +57,8 @@ end
 
 local enable_print = true
 
----@diagnostic disable-next-line: lowercase-global
-log = New 'Log' {
+---@type Log
+local default_log = New 'Log' {
     level = 'trace',
     file  = log_file,
     clock = function ()
@@ -116,6 +116,9 @@ log = New 'Log' {
         return err
     end,
 }
+
+---@diagnostic disable-next-line: lowercase-global
+log = default_log
 
 --重载print
 

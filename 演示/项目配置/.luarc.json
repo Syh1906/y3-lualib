@@ -1,8 +1,4 @@
 {
-    "diagnostics.globals": [
-        "gameapi",
-        "globalapi"
-    ],
     "workspace.preloadFileSize": 5000,
     "runtime.path": [
         "?.lua",
@@ -10,6 +6,8 @@
         "../../../global_script/?.lua",
         "../../../global_script/?/init.lua"
     ],
+    "diagnostics.ignoredFiles": "Disable",
+    "runtime.version": "Lua 5.4",
     "runtime.pathStrict": true,
     "runtime.special": {
         "include": "require"
@@ -17,8 +15,15 @@
     "workspace.library": [
         "../../../global_script"
     ],
+    "workspace.ignoreDir": [
+        "y3/演示",
+        "y3/testcase",
+        "y3/unittest"
+    ],
     "hover.expandAlias": false,
-    "doc.privateName": ["__*"],
+    "doc.privateName": [
+        "__*"
+    ],
     "diagnostics.groupFileStatus": {
         "ambiguity": "Any",
         "await": "Any",
