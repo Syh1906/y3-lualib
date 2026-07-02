@@ -1,0 +1,16 @@
+# 默认按文本文件处理，让 Git 做换行规范化
+* text=auto
+
+# 项目源码、文档与配置统一使用 LF
+*.lua           text eol=lf
+*.md            text eol=lf
+*.json          text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.gitignore     text eol=lf
+*.gitattributes text eol=lf
+*.editorconfig  text eol=lf
+LICENSE         text eol=lf
+
+# Windows 批处理脚本保留 CRLF
+*.bat           text eol=crlf

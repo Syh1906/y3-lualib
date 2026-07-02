@@ -1,0 +1,40 @@
+# 文档网址 https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/docs/format_config.md
+
+indent_style = space
+continuation_indent = 4
+
+# 该选项表示每一行的最大行宽，如果一些可打断的结构超过该行宽则会打断到下一行, 默认值是120
+max_line_length = 200
+
+# 是否以新行结尾
+insert_final_newline = true
+
+# 该选项表示连续赋值语句的任意一行如果等号与左边符号相距大于一个空格，则采用最小对齐原则对齐到等号，该选项默认值为true
+align_continuous_assign_statement = true
+
+# 该选项表示是否为有内容的表在field列表和表的两个大括号之间添加空格，默认值为true
+space_around_table_field_list = false
+
+# 该选项表示是否在闭包表达式的定义中的小括号之前添加一个空白，默认值是false
+space_before_closure_open_parenthesis = true
+
+# 是否在函数前的小括号添加空白
+space_before_function_open_parenthesis = false
+
+# 该选项为lua中的一种特殊用法提供特殊的支持，形如t[#t+1]的表达式被识别为append方法， 该表达形式的'+'号周围是否保持空格，true表示不保留空格，false表示和正常的设定一样
+space_around_table_append_operator = false
+
+# 该选项表示如何处理表的末尾项的分隔符，有四个选项keep/never/always/smart
+trailing_table_separator = smart
+
+# none/ comma / semicolon / only_kv_colon
+table_separator_style = comma
+
+# 该参数表示调用参数是否对齐到首个参数，默认值是false
+align_call_args = true
+
+# 控制注释符号（-- 或 ---）后是否添加空格。
+space_after_comment_dash = false
+
+# 控制连续的行内注释是否对齐。
+align_continuous_inline_comment = true

@@ -1,6 +1,6 @@
 {
     "recommendations": [
         "sumneko.lua",
-        "sumneko.y3-helper"
+        // "sumneko.y3-helper"
     ]
 }
