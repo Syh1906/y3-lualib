@@ -21,9 +21,18 @@
         "include": "require"
     },
     "hover.expandAlias": false,
-    "doc.privateName": [
-        "__*"
-    ],
+    "doc": {
+		"packageName": [
+			"pk_*"
+		],
+		"privateName": [
+			"pr_*",
+            "__*"
+		],
+		"protectedName": [
+			"pt_*"
+		]
+	},
     "diagnostics.groupFileStatus": {
         "ambiguity": "Any",
         "await": "Any",
