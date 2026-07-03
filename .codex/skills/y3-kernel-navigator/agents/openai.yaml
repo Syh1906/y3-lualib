@@ -1,0 +1,4 @@
+interface:
+  display_name: "Y3 Kernel Navigator"
+  short_description: "Navigate the Y3 Lua framework kernel from local source evidence."
+  default_prompt: "Use $y3-kernel-navigator to locate and explain Y3 framework APIs from local source evidence."
