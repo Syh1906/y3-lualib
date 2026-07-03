@@ -17,7 +17,7 @@
 3. 创建全局 `y3` 并设置 `y3.version`。
 4. 先加载 `tools` 基础能力：`proxy`、`class`、`utility`、`json`、`inspect`、`await`，并用 `pcall` 可选加载 `doctor`。
 5. 导出全局类系统便捷函数：`Class`、`New`、`Extends`、`Delete`、`IsValid`、`Type`、`Alias`、`IsInstanceOf`。
-6. 加载日志、热重载、沙盒、哈希、链表、对象池、GC、合成工具。
+6. 加载日志、热重载、沙盒、哈希、链表、对象池、GC、`util/synthesis.lua`。
 7. 加载事件、触发器、自定义事件、存储、引用、GC buffer。
 8. 加载 `game`、`timer`、`py_event_subscribe` 等运行期底座。
 9. 挂载 `object/editable_object`、`object/runtime_object`、`object/scene_object`。

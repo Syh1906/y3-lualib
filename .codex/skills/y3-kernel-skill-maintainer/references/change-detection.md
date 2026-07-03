@@ -17,7 +17,7 @@
 
 ## 通常不更新 navigator 的变化
 
-- `演示/` 玩法样例变化。
+- `演示/` 业务样例变化。
 - `testcase/`、`unittest/` 测试变化。
 - `.github/`、`.vscode/`、仓库 CI 配置变化。
 - `third_party/` 第三方库内部变化，除非用户明确要把行为树作为独立 reference。

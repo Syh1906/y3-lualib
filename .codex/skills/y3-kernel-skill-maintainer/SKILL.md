@@ -1,6 +1,6 @@
 ---
 name: y3-kernel-skill-maintainer
-description: 仅在 y3-lualib 开发仓维护 Y3 内核导航 skill 时使用。适用于检查或更新 .codex/skills/y3-kernel-navigator、同步 reference 与 init.lua、game、util、object、ui_framework、meta、doc/API、.luarc.json 的源码事实，以及发布前验证 navigator 没有混入开发仓维护流程或地图玩法业务模板。不用于普通地图项目。
+description: 仅在 y3-lualib 开发仓维护 Y3 内核导航 skill 时使用。适用于检查或更新 .codex/skills/y3-kernel-navigator、同步 reference 与 init.lua、game、util、object、ui_framework、meta、doc/API、.luarc.json 的源码事实，以及发布前验证 navigator 能为 Y3 地图开发需求提供内核相关 API、源码证据和项目侧衔接边界且没有混入开发仓维护流程。不用于普通地图项目。
 ---
 
 # Y3 内核导航维护
@@ -22,7 +22,7 @@ description: 仅在 y3-lualib 开发仓维护 Y3 内核导航 skill 时使用。
 1. 检查 `navigator` 是否仍反映当前源码事实。
 2. 更新 `navigator` 的 reference，但不把开发仓维护流程写入 `navigator`。
 3. 检查 `init.lua` 的 `y3.*` 挂载、LuaLS 配置、公开 API 文档和内核目录变化。
-4. 验证 `navigator` 不包含特定地图玩法流程。
+4. 验证 `navigator` 能服务地图开发需求，提供 Y3 内核相关能力、API、源码证据和项目侧衔接边界。
 5. 验证 `navigator` 可以独立用于普通地图项目。
 
 ## 按需加载
@@ -45,10 +45,10 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File .codex/skills/y3-kernel-skill-main
 
 脚本只检查当前开发仓状态，不修改文件。出现错误时返回固定 JSON 状态，不做兜底修复。
 
-## 禁止事项
+## 职责边界
 
-- 不在普通地图项目中运行维护流程。
-- 不把维护脚本、同步门、发布检查写进 `y3-kernel-navigator`。
-- 不把 `演示/` 中的玩法流程写成 navigator 规则。
-- 不自动重构 Y3 源码。
-- 不添加业务兜底逻辑或兼容分支。
+- 只在 `y3-lualib` 开发仓运行维护流程。
+- 维护脚本、同步门、发布检查只留在 maintainer 内。
+- `演示/` 只作为参考证据，不写成 navigator 默认实现路径。
+- 源码重构不属于本 skill 职责。
+- 业务兜底逻辑或兼容分支不属于本 skill 职责。

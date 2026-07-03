@@ -1,4 +1,4 @@
 interface:
   display_name: "Y3 Kernel Skill Maintainer"
-  short_description: "Maintain Y3 kernel navigator references."
-  default_prompt: "Use $y3-kernel-skill-maintainer to check navigator references against y3-lualib source changes."
+  short_description: "Keep the Y3 kernel navigator aligned with source-backed usage."
+  default_prompt: "Use $y3-kernel-skill-maintainer to check that $y3-kernel-navigator provides current y3-lualib API evidence and project-side integration boundaries for Y3 development requests."
