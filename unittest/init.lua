@@ -21,6 +21,7 @@ require 'y3.util.event_manager'
 require 'y3.util.custom_event'
 y3.trigger = require 'y3.util.trigger'
 
+require 'y3.unittest.release'
 require 'y3.unittest.eventtest'
 require 'y3.unittest.eventperform'
 require 'y3.unittest.ltimer'

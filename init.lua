@@ -7,7 +7,11 @@ require 'y3.debugger'
 ---@class Y3
 y3 = {}
 
-y3.version = 260616
+y3.release = require 'y3.release'
+y3.version = y3.release.upstream.code
+y3.upstream_version = y3.release.upstream.code
+y3.local_version = y3.release.local_branch.code
+y3.full_version = y3.release.full_name
 
 y3.proxy   = require 'y3.tools.proxy'
 y3.class   = require 'y3.tools.class'
@@ -140,7 +144,7 @@ require 'y3.ui_framework'
 y3.await.setErrorHandler(log.error)
 y3.await.setSleepWaker(y3.ltimer.wait)
 
-log.info('LuaLib版本：', y3.version)
+log.info('LuaLib版本：', y3.full_version)
 
 y3.game:event_dispatch('$Y3-初始化')
 
