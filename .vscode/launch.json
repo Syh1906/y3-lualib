@@ -5,13 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lua",
+            "type": "y3lua",
             "request": "attach",
             "name": "💡附加",
             "address": "127.0.0.1:12399",
             "outputCapture": [],
-            "stopOnEntry": false,
-            "inject": "none",
+            "stopOnEntry": false
         }
     ]
 }
